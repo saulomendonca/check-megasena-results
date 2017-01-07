@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="doCheck($event)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Números do Apostados</label>
+    <textarea  
+      formControlName="numbers" 
+      class="form-control" 
+      rows="3" 
+    ></textarea>
+    <small id="emailHelp" class="form-text text-muted">Coloque o números no formato [1,2,3,4,5,6],[1,2,3,4,5,7].</small>
+  </div>
+</form>

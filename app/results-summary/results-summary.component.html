@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Resultados</h4>
+    <p class="card-text">
+      Quantidade de Jogos: {{_numberTickets}}
+      <br>
+      Senas: {{sixWinningNumbers}}
+      <br>
+      Quinas: {{fiveWinningNumbers}}
+      <br>
+      Quadras: {{fourWinningNumbers}}
+    </p>
+    
+  </div>
+  <div class="card-footer" *ngIf="inProgress">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8" style="text-align: center">
+        Analisando {{_numberTicketsCompleted}} jogos de {{_numberTickets}} ({{percent}}%)
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="progress" >
+          <div 
+            class="progress-bar progress-bar-striped progress-bar-animated" 
+            role="progressbar" 
+            [attr.aria-valuenow]="percent" 
+            aria-valuemin="0" 
+            aria-valuemax="100" 
+            [style.width]="percent + '%'" 
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+</div>
+
+

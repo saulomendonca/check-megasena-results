@@ -1,0 +1,31 @@
+<div class="card"  >
+  <div 
+      [attr.class]="(ticket.sixWinningNumbers || ticket.fiveWinningNumbers || ticket.fourWinningNumbers ? 'card-header card-success': 'card-header')"
+      
+  >
+    <span *ngFor="let number of ticket.numbers" class="result-number">
+        {{ number }}
+    </span>
+  </div>
+  <div class="card-block" *ngIf="ticket.results?.length > 0">
+    <div>
+      Senas: {{  ticket.sixWinningNumbers }}  - Quinas: {{ ticket.fiveWinningNumbers }} - Quadras: {{ ticket.fourWinningNumbers }}
+      <div class="card" *ngFor="let result of ticket.resultsWinning" >
+        <div class="card-header" >
+          concurso número {{ result.result?.lottery_number }}
+          <span *ngFor="let number of result.result.ticket.numbers" [attr.class]="( result.winningNumbers.indexOf(number) != -1 ? 'result-number winning' : 'result-number')">
+              {{ number }}
+          </span>
+
+          
+        </div>
+      </div>
+
+    </div>
+    
+
+
+    
+  </div>
+</div>
+<br>
