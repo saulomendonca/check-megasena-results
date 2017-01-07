@@ -1,0 +1,19 @@
+<tickets-parser  
+(ticketsUpdated)="handleTicketsUpdated($event)" 
+(checkTickets)="handleCheckTickets()" 
+></tickets-parser>
+<br>
+<div *ngIf="checking">
+  <results-summary
+    [numberTickets]="tickets.length"
+    [numberTicketsCompleted]="ticketsChecked"
+    [sixWinningNumbers]="sixWinningNumbers"
+    [fiveWinningNumbers]="fiveWinningNumbers"
+    [fourWinningNumbers]="fourWinningNumbers"
+  ></results-summary>
+</div>
+<br>
+
+<div style="text-align: center;">
+      <ticket *ngFor="let ticket of tickets" [ticket]="ticket" ></ticket>    
+</div>
