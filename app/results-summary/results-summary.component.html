@@ -12,6 +12,32 @@
     </p>
     
   </div>
+  <div class="card-footer text-center" *ngIf="!inProgress">
+    Mostrar jogos com:
+    <label class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" [(ngModel)]="showAll" (ngModelChange)="changeShowAll()">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Todos</span>
+    </label>
+    <label class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" [(ngModel)]="showFourWinningNumbers" (change)="changeShowFourWinningNumbers()">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Quadra</span>
+    </label>
+    <label class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" [(ngModel)]="showFiveWinningNumbers" (change)="changeShowFiveWinningNumbers()">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Quina</span>
+    </label>
+    <label class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" [(ngModel)]="showSixWinningNumbers" (change)="changeShowSixWinningNumbers()">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Sena</span>
+    </label>
+  </div>
+  
+
+
   <div class="card-footer" *ngIf="inProgress">
     <div class="row">
       <div class="col-2"></div>

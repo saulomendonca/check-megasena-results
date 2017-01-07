@@ -10,10 +10,12 @@
     [sixWinningNumbers]="sixWinningNumbers"
     [fiveWinningNumbers]="fiveWinningNumbers"
     [fourWinningNumbers]="fourWinningNumbers"
+
+    (filterChanged)="handleFilterChanged($event)" 
   ></results-summary>
 </div>
 <br>
 
 <div style="text-align: center;">
-      <ticket *ngFor="let ticket of tickets" [ticket]="ticket" ></ticket>    
+      <ticket *ngFor="let ticket of ticketsFiltered" [ticket]="ticket" ></ticket>    
 </div>

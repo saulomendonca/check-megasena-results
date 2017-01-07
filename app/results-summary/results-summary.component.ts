@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,8 +6,15 @@ import { Component, Input } from '@angular/core';
   templateUrl: './results-summary.component.html'
 })
 export class ResultsSummaryComponent {
+  @Output() filterChanged = new EventEmitter();
+
+
   inProgress: boolean = false;
   percent: number = 0;
+  showAll: boolean = true;
+  showSixWinningNumbers: boolean = true;
+  showFiveWinningNumbers: boolean = true;
+  showFourWinningNumbers: boolean = true;
 
   private _numberTickets: number = 0;
   private _numberTicketsCompleted: number = 0;
@@ -43,8 +50,47 @@ export class ResultsSummaryComponent {
     }
 
     this.inProgress = (this.percent < 100 );
-    
   }
+
+  changeShowAll(){
+    if(this.showAll){
+      this.showSixWinningNumbers = true;
+      this.showFiveWinningNumbers = true;
+      this.showFourWinningNumbers = true;
+    }
+    this.emitFilterChanged();
+  }
+
+  changeShowSixWinningNumbers(){
+    if(!this.showSixWinningNumbers){
+      this.showAll = false;
+    }
+    this.emitFilterChanged();
+  }
+
+  changeShowFiveWinningNumbers(){
+    if(!this.showFiveWinningNumbers){
+    this.showAll = false;
+    }
+    this.emitFilterChanged();
+  }
+
+  changeShowFourWinningNumbers(){
+    if(!this.showFourWinningNumbers){
+    this.showAll = false;
+    }
+    this.emitFilterChanged();
+  }
+
+  emitFilterChanged(){
+    this.filterChanged.emit({
+        showAll: this.showAll,
+        showSixWinningNumbers: this.showSixWinningNumbers,
+        showFiveWinningNumbers: this.showFiveWinningNumbers,
+        showFourWinningNumbers: this.showFourWinningNumbers
+      });
+  }
+
 
 
 }
